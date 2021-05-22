@@ -1,4 +1,5 @@
 package com.example.kafka_demo.controller;
+
 import com.example.kafka_demo.service.KafkaProducer;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 @RequestMapping(value = "/kafka")
 public class KafkaController {
-    private final KafkaProducer producer;
 
-    @PostMapping
-    public String sendMessage(@RequestParam("message") String message) {
-        this.producer.sendMessage(message);
+  private final KafkaProducer producer;
 
-        return "success";
-    }
+  @PostMapping
+  public String sendMessage(@RequestParam("message") String message) {
+    this.producer.sendMessage(message);
+
+    return "success";
+  }
 }
